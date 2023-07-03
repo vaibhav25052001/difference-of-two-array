@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>ans,ans1;;
+        unordered_set<int>s,s1;  
+
+        for(int i=0;i<nums1.size();i++)
+        s.insert(nums1[i]);
+
+        for(int i=0;i<nums2.size();i++)
+        s1.insert(nums2[i]);
+
+        for(auto i:s){
+            if(s1.find(i)==s1.end())  //to check elements of nums1 is 
+            ans.push_back(i);         //present or not in nums2
+        }
+
+        for(auto i:s1){
+            if(s.find(i)==s.end())    //to check elements of nums2 is 
+            ans1.push_back(i);        //present or not in nums1
+        }
+
+        return {ans,ans1};
+
+    }
+};
